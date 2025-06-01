@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Formulario de Película{% endblock title %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Añadir/Editar Película</h2>
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mt-3">Guardar Película</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

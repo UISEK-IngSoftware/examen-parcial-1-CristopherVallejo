@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de Películas{% endblock title %}
+
+{% block content %}
+<div class="row">
+    {% for movie in movies %}
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'movies:movie_detail' movie.id %}">
+                        {{ movie.title }} - {{ movie.publication_year }}
+                    </a>
+                </h5>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-md-12">
+        <p>No hay películas registradas.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
